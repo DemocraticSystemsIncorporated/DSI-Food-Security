@@ -315,3 +315,4 @@ data <- tibble(Food_Security, Income, State, Education, Sex,
                Race, Number_of_Jobs, Citizenship, Disability, 
                Industry_of_Employment, Food_Stamps)
 
+
