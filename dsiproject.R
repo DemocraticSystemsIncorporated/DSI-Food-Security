@@ -19,7 +19,7 @@ library(ggplot2)
 # HRFS12MD (measure of food security)
 
 # You'll need to change the path if you're on a different computer.
-dsi <- read_csv("C:/Users/harpe/Downloads/dec19pub.csv") 
+dsi <- read_csv("./dec19pub.csv") 
 target_variables <- select(dsi, HRFS12MD, HEFAMINC, HRNUMHOU, PEEDUCA, PESEX, PTDTRACE, PEMJNUM, PRCITSHP, PUDIS, PRDTIND2, HETSP3O, HESP1, PEMJOT, GCFIP)
 organized_by_security <- arrange(target_variables, desc(HRFS12MD), HEFAMINC, HRNUMHOU, PEEDUCA, PESEX, PTDTRACE, PEMJNUM, PRCITSHP, PUDIS, PRDTIND2, HETSP3O, HESP1, PEMJOT, GCFIP)
 
