@@ -74,6 +74,8 @@ Income <- select(a, inc)
 #-----------------------------------------------
 
 b <- prestate %>% mutate(states = case_when(
+  #because these are getting stored as characters, single digits need to be expressed
+  #as double digit characters for state data AL-CT to be read in
   prestate == "01" ~ "AL",
   prestate == "02" ~ "AK",
   prestate == "04" ~ "AZ",
