@@ -74,13 +74,13 @@ Income <- select(a, inc)
 #-----------------------------------------------
 
 b <- prestate %>% mutate(states = case_when(
-  prestate == 1 ~ "AL",
-  prestate == 2 ~ "AK",
-  prestate == 4 ~ "AZ",
-  prestate == 5 ~ "AR",
-  prestate == 6 ~ "CA",
-  prestate == 8 ~ "CO",
-  prestate == 9 ~ "CT",
+  prestate == "01" ~ "AL",
+  prestate == "02" ~ "AK",
+  prestate == "04" ~ "AZ",
+  prestate == "05" ~ "AR",
+  prestate == "06" ~ "CA",
+  prestate == "08" ~ "CO",
+  prestate == "09" ~ "CT",
   prestate == 10 ~ "DE",
   prestate == 11 ~ "DC",
   prestate == 12 ~ "FL",
