@@ -98,6 +98,7 @@ server <- (function(input, output){
       #useLabels <- unique(g)
       #categories <- useLabels$Cit
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Cit)
     }
     
@@ -105,6 +106,7 @@ server <- (function(input, output){
       #useLabels <- unique(h)
       #categories <- useLabels$Dis
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Dis)
     }
     
@@ -112,6 +114,7 @@ server <- (function(input, output){
       #useLabels <- unique(c)
       #categories <- useLabels$edu
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, edu)
     }
     
@@ -119,6 +122,7 @@ server <- (function(input, output){
       #useLabels <- unique(j)
       #categories <- useLabels$Food
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Food)
     }
     
@@ -126,6 +130,7 @@ server <- (function(input, output){
       #useLabels <- unique(a)
       #categories <- useLabels$inc
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, inc)
     }
     
@@ -133,6 +138,7 @@ server <- (function(input, output){
       #useLabels <- unique(i)
       #categories <- useLabels$Ind
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Ind)
     }
     
@@ -140,6 +146,7 @@ server <- (function(input, output){
       #useLabels <- unique(f)
       #categories <- useLabels$jobs
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, jobs)
     }
     
@@ -148,7 +155,7 @@ server <- (function(input, output){
       #useLabels <- unique(e)
       #categories <- useLabels$races
       #print(categories)
-      
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, races)
       
       #these were used to investigate why certain bars didn't exist
@@ -160,6 +167,7 @@ server <- (function(input, output){
       #useLabels <- unique(d)
       #categories <- useLabels$sexes
       #print(categories)
+      if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, sexes)
     }
     
@@ -167,306 +175,306 @@ server <- (function(input, output){
     #States
     #AL-CT are all missing any entries so they just get a missing message.
     # ^no they aren't single digits was just reading in weird
-    if(input$states == "AL"){
-      #num <- count(State,states)
-      #print(num)
-      #print(State)
-      #test <- count(data,states)
-      #print(test)
+    # if(input$states == "AL"){
+    #   #num <- count(State,states)
+    #   #print(num)
+    #   #print(State)
+    #   #test <- count(data,states)
+    #   #print(test)
       
-      temp <- filter(data, states == "AL")
-      data <- select(temp, FSecurity, states)
+    #   temp <- filter(data, states == "AL")
+    #   data <- select(temp, FSecurity, states)
       
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from Alabama."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      #))
-    }
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from Alabama."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   #))
+    # }
     
-    if(input$states == "AK"){
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from Alaska."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      # ))
-      temp <- filter(data, states == "AK")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "AK"){
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from Alaska."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   # ))
+    #   temp <- filter(data, states == "AK")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "AZ"){
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from Arizona."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      # ))
-      temp <- filter(data, states == "AZ")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "AZ"){
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from Arizona."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   # ))
+    #   temp <- filter(data, states == "AZ")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "AR"){
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from Arkansas."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      # ))
-      temp <- filter(data, states == "AR")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "AR"){
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from Arkansas."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   # ))
+    #   temp <- filter(data, states == "AR")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "CA"){
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from California."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      # ))
-      temp <- filter(data, states == "CA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "CA"){
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from California."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   # ))
+    #   temp <- filter(data, states == "CA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "CO"){
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from Colorado."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      # ))
-      temp <- filter(data, states == "CO")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "CO"){
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from Colorado."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   # ))
+    #   temp <- filter(data, states == "CO")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "CT"){
-      # showModal(modalDialog(
-      #   title = "Missing Data",
-      #   paste0("No available data from Connecticut."),
-      #   easyClose = TRUE,
-      #   footer = NULL
-      # ))
-      temp <- filter(data, states == "CT")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "CT"){
+    #   # showModal(modalDialog(
+    #   #   title = "Missing Data",
+    #   #   paste0("No available data from Connecticut."),
+    #   #   easyClose = TRUE,
+    #   #   footer = NULL
+    #   # ))
+    #   temp <- filter(data, states == "CT")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    #The rest of the states actually have data so they get real filters.
+    # #The rest of the states actually have data so they get real filters.
     
-    if(input$states == "DE"){
-      temp <- filter(data, states == "DE")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "DE"){
+    #   temp <- filter(data, states == "DE")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "FL"){
-      temp <- filter(data, states == "FL")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "FL"){
+    #   temp <- filter(data, states == "FL")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "GA"){
-      temp <- filter(data, states == "GA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "GA"){
+    #   temp <- filter(data, states == "GA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "HI"){
-      temp <- filter(data, states == "HI")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "HI"){
+    #   temp <- filter(data, states == "HI")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "ID"){
-      temp <- filter(data, states == "ID")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "ID"){
+    #   temp <- filter(data, states == "ID")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "IL"){
-      temp <- filter(data, states == "IL")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "IL"){
+    #   temp <- filter(data, states == "IL")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "IN"){
-      temp <- filter(data, states == "IN")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "IN"){
+    #   temp <- filter(data, states == "IN")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "IA"){
-      temp <- filter(data, states == "IA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "IA"){
+    #   temp <- filter(data, states == "IA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "KS"){
-      temp <- filter(data, states == "KS")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "KS"){
+    #   temp <- filter(data, states == "KS")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "KY"){
-      temp <- filter(data, states == "KY")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "KY"){
+    #   temp <- filter(data, states == "KY")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "LA"){
-      temp <- filter(data, states == "LA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "LA"){
+    #   temp <- filter(data, states == "LA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "ME"){
-      temp <- filter(data, states == "ME")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "ME"){
+    #   temp <- filter(data, states == "ME")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MD"){
-      temp <- filter(data, states == "MD")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MD"){
+    #   temp <- filter(data, states == "MD")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MA"){
-      temp <- filter(data, states == "MA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MA"){
+    #   temp <- filter(data, states == "MA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MI"){
-      temp <- filter(data, states == "MI")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MI"){
+    #   temp <- filter(data, states == "MI")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MN"){
-      temp <- filter(data, states == "MN")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MN"){
+    #   temp <- filter(data, states == "MN")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MS"){
-      temp <- filter(data, states == "MS")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MS"){
+    #   temp <- filter(data, states == "MS")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MO"){
-      temp <- filter(data, states == "MO")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MO"){
+    #   temp <- filter(data, states == "MO")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "MT"){
-      temp <- filter(data, states == "MT")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "MT"){
+    #   temp <- filter(data, states == "MT")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NE"){
-      temp <- filter(data, states == "NE")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NE"){
+    #   temp <- filter(data, states == "NE")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NV"){
-      temp <- filter(data, states == "NV")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NV"){
+    #   temp <- filter(data, states == "NV")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NH"){
-      temp <- filter(data, states == "NH")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NH"){
+    #   temp <- filter(data, states == "NH")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NJ"){
-      temp <- filter(data, states == "NJ")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NJ"){
+    #   temp <- filter(data, states == "NJ")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NM"){
-      temp <- filter(data, states == "NM")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NM"){
+    #   temp <- filter(data, states == "NM")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NY"){
-      temp <- filter(data, states == "NY")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NY"){
+    #   temp <- filter(data, states == "NY")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "NC"){
-      temp <- filter(data, states == "NC")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "NC"){
+    #   temp <- filter(data, states == "NC")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "ND"){
-      temp <- filter(data, states == "ND")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "ND"){
+    #   temp <- filter(data, states == "ND")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "OH"){
-      temp <- filter(data, states == "OH")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "OH"){
+    #   temp <- filter(data, states == "OH")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "OK"){
-      temp <- filter(data, states == "OK")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "OK"){
+    #   temp <- filter(data, states == "OK")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "OR"){
-      temp <- filter(data, states == "OR")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "OR"){
+    #   temp <- filter(data, states == "OR")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "PA"){
-      temp <- filter(data, states == "PA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "PA"){
+    #   temp <- filter(data, states == "PA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "RI"){
-      temp <- filter(data, states == "RI")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "RI"){
+    #   temp <- filter(data, states == "RI")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "SC"){
-      temp <- filter(data, states == "SC")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "SC"){
+    #   temp <- filter(data, states == "SC")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "SD"){
-      temp <- filter(data, states == "SD")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "SD"){
+    #   temp <- filter(data, states == "SD")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "TN"){
-      temp <- filter(data, states == "TN")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "TN"){
+    #   temp <- filter(data, states == "TN")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "TX"){
-      temp <- filter(data, states == "TX")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "TX"){
+    #   temp <- filter(data, states == "TX")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "UT"){
-      temp <- filter(data, states == "UT")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "UT"){
+    #   temp <- filter(data, states == "UT")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "VT"){
-      temp <- filter(data, states == "VT")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "VT"){
+    #   temp <- filter(data, states == "VT")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "VA"){
-      temp <- filter(data, states == "VA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "VA"){
+    #   temp <- filter(data, states == "VA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "WA"){
-      temp <- filter(data, states == "WA")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "WA"){
+    #   temp <- filter(data, states == "WA")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "WV"){
-      temp <- filter(data, states == "WV")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "WV"){
+    #   temp <- filter(data, states == "WV")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "WI"){
-      temp <- filter(data, states == "WI")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "WI"){
+    #   temp <- filter(data, states == "WI")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
-    if(input$states == "WY"){
-      temp <- filter(data, states == "WY")
-      data <- select(temp, FSecurity, states)
-    }
+    # if(input$states == "WY"){
+    #   temp <- filter(data, states == "WY")
+    #   data <- select(temp, FSecurity, states)
+    # }
     
     #--------------------------------------------
     #legend strategy from: 
