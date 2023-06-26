@@ -9,6 +9,12 @@ library(shiny)
 ui <- (fluidPage(
   titlePanel("Food Security"),
   sidebarPanel(
+    #Making state choice bar
+    selectInput("years", "Select a Year", c("All",
+                                            "2019", 
+                                            "2020",
+                                            "2021"), 
+                selected = "All"),#Default is all-time view
     #Making filter choice bar
     selectInput("filters","Select a Filter", c("None",
                                                "Citizenship",
@@ -98,6 +104,7 @@ server <- (function(input, output){
       #useLabels <- unique(g)
       #categories <- useLabels$Cit
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Cit)
     }
@@ -106,6 +113,7 @@ server <- (function(input, output){
       #useLabels <- unique(h)
       #categories <- useLabels$Dis
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Dis)
     }
@@ -114,6 +122,7 @@ server <- (function(input, output){
       #useLabels <- unique(c)
       #categories <- useLabels$edu
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, edu)
     }
@@ -122,6 +131,7 @@ server <- (function(input, output){
       #useLabels <- unique(j)
       #categories <- useLabels$Food
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Food)
     }
@@ -130,6 +140,7 @@ server <- (function(input, output){
       #useLabels <- unique(a)
       #categories <- useLabels$inc
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, inc)
     }
@@ -138,6 +149,7 @@ server <- (function(input, output){
       #useLabels <- unique(i)
       #categories <- useLabels$Ind
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, Ind)
     }
@@ -146,6 +158,7 @@ server <- (function(input, output){
       #useLabels <- unique(f)
       #categories <- useLabels$jobs
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, jobs)
     }
@@ -155,6 +168,7 @@ server <- (function(input, output){
       #useLabels <- unique(e)
       #categories <- useLabels$races
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, races)
       
@@ -167,6 +181,7 @@ server <- (function(input, output){
       #useLabels <- unique(d)
       #categories <- useLabels$sexes
       #print(categories)
+      if (input$years != "All") data <- filter(data, year == input$years)
       if (input$states != "All") data <- filter(data, states == input$states)
       data <- select(data, FSecurity, sexes)
     }

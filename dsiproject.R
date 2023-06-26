@@ -19,7 +19,14 @@ library(ggplot2)
 # HRFS12MD (measure of food security)
 
 # You'll need to change the path if you're on a different computer.
-data <- read_csv("./dec19pub.csv") 
+data19 <- read_csv("./dec19pub.csv")
+colnames(data19)[colnames(data19) == "GCFIP"] ="GESTFIPS"
+data19 <- select(data19, HRYEAR4, HEFAMINC, GESTFIPS, PEEDUCA, PESEX, PTDTRACE, PEMJOT, PRCITSHP, PUDIS, PRDTIND2, HESP1, HRFS12MD)
+data20 <- read_csv("./dec20pub.csv")
+data20 <- select(data20, HRYEAR4, HEFAMINC, GESTFIPS, PEEDUCA, PESEX, PTDTRACE, PEMJOT, PRCITSHP, PUDIS, PRDTIND2, HESP1, HRFS12MD)
+data21 <- read_csv("./dec21pub.csv")
+data21 <- select(data21, HRYEAR4, HEFAMINC, GESTFIPS, PEEDUCA, PESEX, PTDTRACE, PEMJOT, PRCITSHP, PUDIS, PRDTIND2, HESP1, HRFS12MD)
+data <- rbind(data19, data20, data21)
 # target_variables <- select(dsi, HRFS12MD, HEFAMINC, HRNUMHOU, PEEDUCA, PESEX, PTDTRACE, PEMJNUM, PRCITSHP, PUDIS, PRDTIND2, HETSP3O, HESP1, PEMJOT, GCFIP)
 # organized_by_security <- arrange(target_variables, desc(HRFS12MD), HEFAMINC, HRNUMHOU, PEEDUCA, PESEX, PTDTRACE, PEMJNUM, PRCITSHP, PUDIS, PRDTIND2, HETSP3O, HESP1, PEMJOT, GCFIP)
 
@@ -93,57 +100,64 @@ data <- data |> mutate(inc = case_when(
 #-----------------------------------------------
 
 data <- data |> mutate(states = case_when(
-  GCFIP == "01" ~ "AL",
-  GCFIP == "02" ~ "AK",
-  GCFIP == "04" ~ "AZ",
-  GCFIP == "05" ~ "AR",
-  GCFIP == "06" ~ "CA",
-  GCFIP == "08" ~ "CO",
-  GCFIP == "09" ~ "CT",
-  GCFIP == 10 ~ "DE",
-  GCFIP == 11 ~ "DC",
-  GCFIP == 12 ~ "FL",
-  GCFIP == 13 ~ "GA",
-  GCFIP == 15 ~ "HI",
-  GCFIP == 16 ~ "ID",
-  GCFIP == 17 ~ "IL",
-  GCFIP == 18 ~ "IN",
-  GCFIP == 19 ~ "IA",
-  GCFIP == 20 ~ "KS",
-  GCFIP == 21 ~ "KY",
-  GCFIP == 22 ~ "LA",
-  GCFIP == 23 ~ "ME",
-  GCFIP == 24 ~ "MD",
-  GCFIP == 25 ~ "MA",
-  GCFIP == 26 ~ "MI",
-  GCFIP == 27 ~ "MN",
-  GCFIP == 28 ~ "MS",
-  GCFIP == 29 ~ "MO",
-  GCFIP == 30 ~ "MT",
-  GCFIP == 31 ~ "NE",
-  GCFIP == 32 ~ "NV",
-  GCFIP == 33 ~ "NH",
-  GCFIP == 34 ~ "NJ",
-  GCFIP == 35 ~ "NM",
-  GCFIP == 36 ~ "NY",
-  GCFIP == 37 ~ "NC",
-  GCFIP == 38 ~ "ND",
-  GCFIP == 39 ~ "OH",
-  GCFIP == 40 ~ "OK",
-  GCFIP == 41 ~ "OR",
-  GCFIP == 42 ~ "PA",
-  GCFIP == 44 ~ "RI",
-  GCFIP == 45 ~ "SC",
-  GCFIP == 46 ~ "SD",
-  GCFIP == 47 ~ "TN",
-  GCFIP == 48 ~ "TX",
-  GCFIP == 49 ~ "UT",
-  GCFIP == 50 ~ "VT",
-  GCFIP == 51 ~ "VA",
-  GCFIP == 53 ~ "WA",
-  GCFIP == 54 ~ "WV",
-  GCFIP == 55 ~ "WI",
-  GCFIP == 56 ~ "WY"
+  GESTFIPS == "01" ~ "AL",
+  GESTFIPS == "02" ~ "AK",
+  GESTFIPS == "04" ~ "AZ",
+  GESTFIPS == "05" ~ "AR",
+  GESTFIPS == "06" ~ "CA",
+  GESTFIPS == "08" ~ "CO",
+  GESTFIPS == "09" ~ "CT",
+  GESTFIPS == 1 ~ "AL",
+  GESTFIPS == 2 ~ "AK",
+  GESTFIPS == 4 ~ "AZ",
+  GESTFIPS == 5 ~ "AR",
+  GESTFIPS == 6 ~ "CA",
+  GESTFIPS == 8 ~ "CO",
+  GESTFIPS == 9 ~ "CT",
+  GESTFIPS == 10 ~ "DE",
+  GESTFIPS == 11 ~ "DC",
+  GESTFIPS == 12 ~ "FL",
+  GESTFIPS == 13 ~ "GA",
+  GESTFIPS == 15 ~ "HI",
+  GESTFIPS == 16 ~ "ID",
+  GESTFIPS == 17 ~ "IL",
+  GESTFIPS == 18 ~ "IN",
+  GESTFIPS == 19 ~ "IA",
+  GESTFIPS == 20 ~ "KS",
+  GESTFIPS == 21 ~ "KY",
+  GESTFIPS == 22 ~ "LA",
+  GESTFIPS == 23 ~ "ME",
+  GESTFIPS == 24 ~ "MD",
+  GESTFIPS == 25 ~ "MA",
+  GESTFIPS == 26 ~ "MI",
+  GESTFIPS == 27 ~ "MN",
+  GESTFIPS == 28 ~ "MS",
+  GESTFIPS == 29 ~ "MO",
+  GESTFIPS == 30 ~ "MT",
+  GESTFIPS == 31 ~ "NE",
+  GESTFIPS == 32 ~ "NV",
+  GESTFIPS == 33 ~ "NH",
+  GESTFIPS == 34 ~ "NJ",
+  GESTFIPS == 35 ~ "NM",
+  GESTFIPS == 36 ~ "NY",
+  GESTFIPS == 37 ~ "NC",
+  GESTFIPS == 38 ~ "ND",
+  GESTFIPS == 39 ~ "OH",
+  GESTFIPS == 40 ~ "OK",
+  GESTFIPS == 41 ~ "OR",
+  GESTFIPS == 42 ~ "PA",
+  GESTFIPS == 44 ~ "RI",
+  GESTFIPS == 45 ~ "SC",
+  GESTFIPS == 46 ~ "SD",
+  GESTFIPS == 47 ~ "TN",
+  GESTFIPS == 48 ~ "TX",
+  GESTFIPS == 49 ~ "UT",
+  GESTFIPS == 50 ~ "VT",
+  GESTFIPS == 51 ~ "VA",
+  GESTFIPS == 53 ~ "WA",
+  GESTFIPS == 54 ~ "WV",
+  GESTFIPS == 55 ~ "WI",
+  GESTFIPS == 56 ~ "WY"
 ))
 
 # b <- prestate %>% mutate(states = case_when(
@@ -528,8 +542,12 @@ data <- data |> mutate(FSecurity = case_when(
 
 #-----------------------------------------------
 
+data <- data |> mutate(year = HRYEAR4)
+  
+#-----------------------------------------------
+
 # Next, putting the readable data in a new tibble to be used for shiny.
-data <- select(data, inc, states, edu, sexes, races, jobs, Cit, Dis, Ind, Food, FSecurity)
+data <- select(data, year, inc, states, edu, sexes, races, jobs, Cit, Dis, Ind, Food, FSecurity)
 # data <- tibble(Food_Security, Income, State, Education, Sex,
 #                Race, Number_of_Jobs, Citizenship, Disability, 
 #                Industry_of_Employment, Food_Stamps)
